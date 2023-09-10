@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\Home::class)->name('home');
 
-Route::get('/users', Index::class)->name('users.index');
+Route::get('/users', Index::class)->name('users');
