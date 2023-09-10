@@ -10,11 +10,6 @@ class ShowUser extends ModalComponent
 {
     public User $user;
 
-    public static function modalMaxWidth(): string
-    {
-        return 'sm';
-    }
-
     public function render()
     {
         return view('livewire.users.show-user');

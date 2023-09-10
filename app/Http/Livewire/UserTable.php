@@ -30,7 +30,7 @@ class UserTable extends DataTableComponent
             Column::make("Email", "email")
                 ->sortable()
                 ->searchable(),
-            Column::make("Register at", "created_at")
+            Column::make("Register date", "created_at")
                 ->sortable(),
             ButtonGroupColumn::make('Actions')
                 ->attributes(function ($row) {
@@ -70,7 +70,7 @@ class UserTable extends DataTableComponent
         ];
     }
 
-    public function destroy($userId)
+    public function destroy($userId): void
     {
         User::destroy($userId);
     }
