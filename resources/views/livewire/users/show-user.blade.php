@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        Edit user
+        Show user
     </x-slot>
 
     <x-slot name="content">
@@ -19,7 +19,7 @@
                     <span class="sr-only">Close modal</span>
                 </button>
                 <div class="px-6 py-6 lg:px-8">
-                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit user</h3>
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Show user</h3>
                     <div class="flex justify-center items-center mt-16">
                         <div
                             class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -31,9 +31,7 @@
                                 <span class="text-sm text-gray-500 dark:text-gray-400">{{ $user->email }}</span>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
