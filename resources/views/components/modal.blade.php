@@ -1,6 +1,6 @@
 @props(['formAction' => false])
 
-<div class="bg-transparent">
+<div class="w-full h-screen">
     @if($formAction)
         <form wire:submit.prevent="{{ $formAction }}">
             @endif

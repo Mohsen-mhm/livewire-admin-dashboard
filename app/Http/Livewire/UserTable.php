@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
@@ -29,19 +30,18 @@ class UserTable extends DataTableComponent
             Column::make("Email", "email")
                 ->sortable()
                 ->searchable(),
-            Column::make("Created at", "created_at")
+            Column::make("Register at", "created_at")
                 ->sortable(),
             ButtonGroupColumn::make('Actions')
                 ->attributes(function ($row) {
                     return [
-                        'class' => 'space-x-3',
-                        'id' => "user-$row->id",
+                        'class' => 'space-x-2',
                     ];
                 })
                 ->buttons([
                     LinkColumn::make('Show')
                         ->title(fn($row) => '')
-                        ->location(fn($row) => '#')
+                        ->location(fn($row) => 'javascript:void(0)')
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'text-yellow-600 fa-solid fa-lg fa-eye',
@@ -50,7 +50,7 @@ class UserTable extends DataTableComponent
                         }),
                     LinkColumn::make('Edit')
                         ->title(fn($row) => '')
-                        ->location(fn($row) => '#')
+                        ->location(fn($row) => 'javascript:void(0)')
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'text-blue-600 fa-solid fa-lg fa-pencil',
@@ -59,7 +59,7 @@ class UserTable extends DataTableComponent
                         }),
                     LinkColumn::make('Delete')
                         ->title(fn($row) => '')
-                        ->location(fn($row) => '#')
+                        ->location(fn($row) => 'javascript:void(0)')
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'text-red-500 fa-solid fa-lg fa-trash',
