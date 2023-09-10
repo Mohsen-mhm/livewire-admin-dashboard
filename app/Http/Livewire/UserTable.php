@@ -63,15 +63,12 @@ class UserTable extends DataTableComponent
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'text-red-500 fa-solid fa-lg fa-trash',
-                                'wire:click' => "destroy($row->id)",
+                                'wire:click' => "\$emit('openModal', 'users.delete-user', {user:$row->id})",
                             ];
                         }),
                 ]),
         ];
     }
 
-    public function destroy($userId): void
-    {
-        User::destroy($userId);
-    }
+
 }
