@@ -2,12 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\Views\Columns\ButtonGroupColumn;
 use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\NumberFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\TextFilter;
 
 class UserTable extends DataTableComponent
 {
@@ -16,7 +20,8 @@ class UserTable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+            ->setFiltersEnabled();
     }
 
     public function columns(): array
@@ -70,5 +75,38 @@ class UserTable extends DataTableComponent
         ];
     }
 
+    public function filters(): array
+    {
+        return [
+            DateFilter::make(__('messages.register.date'))
+                ->setFilterPillTitle(__('messages.register.date'))
+                ->filter(function (Builder $builder, string $value) {
+                    $builder->where('users.created_at', 'like', '%' . $value . '%');
+                }),
+
+            TextFilter::make(__('messages.name.search'))
+                ->setFilterPillTitle(__('messages.name'))
+                ->config([
+                    'maxlength' => '25',
+                ])
+                ->filter(function (Builder $builder, string $value) {
+                    $builder->where('users.name', 'like', '%' . $value . '%');
+                }),
+
+            TextFilter::make(__('messages.email.search'))
+                ->setFilterPillTitle(__('messages.email'))
+                ->config([
+                    'maxlength' => '25',
+                ])
+                ->filter(function (Builder $builder, string $value) {
+                    $builder->where('users.email', 'like', '%' . $value . '%');
+                }),
+
+            NumberFilter::make(__('messages.id'))
+                ->filter(function (Builder $builder, string $value) {
+                    $builder->where('users.id', 'like', '%' . $value . '%');
+                }),
+        ];
+    }
 
 }

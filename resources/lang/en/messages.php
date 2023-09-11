@@ -19,4 +19,7 @@ return [
     "confirm.delete" => "Are you sure you want to delete this user?",
     "yes" => "Yes",
     "no" => "No",
+    "search" => "Search",
+    "name.search" => "Search name",
+    "email.search" => "Search email",
 ];
