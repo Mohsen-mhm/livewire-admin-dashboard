@@ -36,7 +36,10 @@ class UserTable extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make(__('messages.register.date'), "created_at")
-                ->sortable(),
+                ->sortable()
+                ->format(
+                    fn($value, $row, Column $column) => Carbon::parse($value)->format('m/d/Y')
+                ),
             ButtonGroupColumn::make(__('messages.actions'))
                 ->attributes(function ($row) {
                     return [
