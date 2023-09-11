@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Livewire\Home::class)->name('home');
+Route::get('/', function () {
+    return redirect()->route('home', 'en');
+});
 
-Route::get('/users', Index::class)->name('users');
+Route::group(['prefix' => '{locale}', 'middleware' => 'set.locale'], function () {
+
+    Route::get('/', \App\Http\Livewire\Home::class)->name('home');
+
+    Route::get('/users', Index::class)->name('users');
+
+});
+

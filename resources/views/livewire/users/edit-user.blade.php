@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        Edit user
+        {{ __('messages.edit.user') }}
     </x-slot>
 
     <x-slot name="content">
@@ -12,7 +12,7 @@
             <div class="w-5/6 grid gap-4 mb-4 sm:grid-cols-2">
                 <div>
                     <label for="name"
-                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.name') }}</label>
                     <input type="text" name="name" id="name" wire:model.debounce.750ms="user.name"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 transition"
                            placeholder="mohsen" required="" value="{{ $user->name }}">
@@ -21,7 +21,7 @@
                 </div>
                 <div>
                     <label for="email"
-                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ __('messages.email') }}</label>
                     <input type="email" name="email" id="email" wire:model.debounce.750ms="user.email" dir="ltr"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-purple-500 dark:focus:border-purple-500 transition"
                            placeholder="example.gmail.com" required="" value="{{ $user->email }}">
@@ -31,7 +31,7 @@
             </div>
             <button type="submit"
                     class="bg-white text-gray-800 font-normal text-sm rounded border-b-2 border-purple-500 hover:border-purple-600 hover:bg-purple-500 hover:text-white shadow-md py-2 px-3 mx-1 mt-4 inline-flex items-center transition">
-                <span class="mx-auto" wire:target="update" wire:loading.remove>Edit user</span>
+                <span class="mx-auto" wire:target="update" wire:loading.remove>{{ __('messages.edit.user') }}</span>
                 <div role="status" wire:target="update" wire:loading>
                     <svg aria-hidden="true"
                          class="inline w-6 h-6 mx-3 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"

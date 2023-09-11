@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        Show user
+        {{ __('messages.show.user') }}
     </x-slot>
 
     <x-slot name="content">
@@ -13,11 +13,11 @@
                          alt="Bonnie image"/>
                     <div class="w-full flex justify-evenly items-center">
                         <div class="flex flex-col justify-center items-center">
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Name:</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{{ __('messages.name') }}:</span>
                             <h5 class="mb-1 text-lg font-medium text-gray-900 dark:text-white">{{ $user->name }}</h5>
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <span class="text-sm text-gray-500 dark:text-gray-400">Email:</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400">{{ __('messages.email') }}:</span>
                             <h5 class="mb-1 text-lg font-medium text-gray-900 dark:text-white">{{ $user->email }}</h5>
                         </div>
                     </div>

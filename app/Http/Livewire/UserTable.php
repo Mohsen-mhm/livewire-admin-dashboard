@@ -22,17 +22,17 @@ class UserTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "id")
+            Column::make(__('messages.id'), "id")
                 ->sortable(),
-            Column::make("Name", "name")
+            Column::make(__('messages.name'), "name")
                 ->sortable()
                 ->searchable(),
-            Column::make("Email", "email")
+            Column::make(__('messages.email'), "email")
                 ->sortable()
                 ->searchable(),
-            Column::make("Register date", "created_at")
+            Column::make(__('messages.register.date'), "created_at")
                 ->sortable(),
-            ButtonGroupColumn::make('Actions')
+            ButtonGroupColumn::make(__('messages.actions'))
                 ->attributes(function ($row) {
                     return [
                         'class' => 'space-x-2',

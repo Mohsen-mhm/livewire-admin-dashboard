@@ -16,7 +16,7 @@
         }
     </style>
 </head>
-<body>
+<body @if(app()->getLocale() == "fa") dir="rtl" @else dir="ltr" @endif>
 
 <livewire:layouts.header/>
 
