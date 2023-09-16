@@ -1,6 +1,6 @@
 <x-modal>
     <x-slot name="title">
-        {{ __('messages.create.user') }}
+        {{ __('messages.create.permission') }}
     </x-slot>
 
     <x-slot name="content">

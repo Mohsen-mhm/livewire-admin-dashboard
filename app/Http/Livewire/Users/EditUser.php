@@ -10,17 +10,17 @@ class EditUser extends ModalComponent
 {
     public User $user;
 
-    public function updated($propertyName): void
-    {
-        $this->validateOnly($propertyName);
-    }
-
     protected function rules()
     {
         return [
             'user.name' => ['required', 'string', 'min:3'],
             'user.email' => ['required', 'email', Rule::unique('users', 'email')->ignore($this->user->id)],
         ];
+    }
+
+    public function updated($propertyName): void
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function update()
